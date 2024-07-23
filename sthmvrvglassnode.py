@@ -6,7 +6,7 @@ import yfinance as yf
 # Placeholder function to simulate fetching STH MVRV data from Glassnode
 def fetch_sth_mvrv_data():
     # Replace with actual API call to Glassnode
-    dates = pd.date_range(start='2020-01-01', end=pd.Timestamp.today(), freq='D')
+    dates = pd.date_range(start='2015-01-01', end=pd.Timestamp.today(), freq='D')
     sth_mvrv = np.random.uniform(0.8, 2.0, size=len(dates))
     return pd.DataFrame({'Date': dates, 'STH MVRV': sth_mvrv})
 
@@ -24,7 +24,7 @@ sth_mvrv_data['365D-SMA'] = sth_mvrv_data['STH MVRV'].rolling(window=365).mean()
 sth_mvrv_data['STH MVRV Momentum'] = sth_mvrv_data['STH MVRV'] - sth_mvrv_data['365D-SMA']
 
 # Smooth out the STH MVRV Momentum using a 30-day moving average
-sth_mvrv_data['STH MVRV Momentum Smoothed'] = sth_mvrv_data['STH MVRV Momentum'].rolling(window=30).mean()
+sth_mvrv_data['STH MVRV Momentum Smoothed'] = sth_mvrv_data['STH MVRV Momentum'].rolling(window=250).mean()
 
 # Plot the data
 fig, ax1 = plt.subplots(figsize=(14, 7))
