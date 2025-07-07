@@ -1,0 +1,6 @@
+yfinance==0.2.65
+pandas==2.3.0
+pandas-ta==0.3.14b0
+numpy==1.26.4
+matplotlib==3.10.3
+setuptools==80.9.0
